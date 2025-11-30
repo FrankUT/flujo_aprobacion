@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Plantilla base HTML para proyectos web." />
+    <meta name="author" content="Tu nombre o empresa" />
+    <title>Mi aplicación — Plantilla</title>
+
+    <!-- Favicons (opcional) -->
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- SEO / Open Graph (ejemplo) -->
+    <meta property="og:title" content="Mi aplicación" />
+    <meta property="og:description" content="Plantilla base HTML para proyectos web." />
+    <meta property="og:type" content="website" />
+</head>
+<body>
+    <!-- Cabecera -->
+    <header>
+        <div class="container">
+            <h1>Nombre del proyecto</h1>
+            <nav aria-label="Navegación principal">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Características</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="container" role="main">
+        <section>
+            <h2>Bienvenido</h2>
+            <p>Esta es una plantilla general en HTML. Sustituya el contenido según sus necesidades.</p>
+        </section>
+
+        <!-- Ejemplo de sección -->
+        <section>
+            <h3>Sección</h3>
+            <p>Contenido de ejemplo.</p>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Nombre del proyecto. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Actualiza el año en el pie de página
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="main.js" defer></script>
+</body>
+</html>
