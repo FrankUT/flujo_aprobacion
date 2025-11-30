@@ -27,6 +27,16 @@ public class UsuarioController {
 
     @PostMapping //Crear usuario
     public Usuario crearUsuario(@RequestBody Usuario usuario) {
-    return service.crearUsuario(usuario);
-}
+        return service.crearUsuario(usuario);
+    }
+
+    @PutMapping("/{id}") //Actualizar usuario
+    public Usuario actualizarUsuario(@PathVariable("id") String id, @RequestBody Usuario usuario) {
+        return service.actualizarUsuario(id, usuario);
+    }
+
+    @DeleteMapping("/{id}") //Eliminar usuario
+    public void eliminarUsuario(@PathVariable("id") String id) {
+        service.eliminarUsuario(id);
+    }
 }

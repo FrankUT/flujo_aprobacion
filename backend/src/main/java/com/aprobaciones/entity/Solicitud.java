@@ -2,18 +2,22 @@ package com.aprobaciones.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
+@Table(name = "solicitudes")
 @Data
 public class Solicitud {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @JdbcTypeCode(SqlTypes.UUID)
+    private UUID id;
 
     private String titulo;
 
@@ -29,6 +33,9 @@ public class Solicitud {
     private String tipo;
     private String estado;
 
+    @Column(name = "fecha_creacion")
     private LocalDateTime fechaCreacion;
+    
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 }
