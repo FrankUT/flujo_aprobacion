@@ -1,0 +1,156 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+h1 {
+    color: #007bff; 
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#filtroEstado {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: inline-block;
+    min-width: 150px;
+}
+
+#solicitudes-container {
+    margin-top: 20px;
+    width: 95%;
+    margin:0 auto;
+}
+
+.solicitud-item {
+    background-color: #fff;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    width: 80%;
+}
+
+.solicitud-item:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.solicitud-item h3 {
+    margin-top: 0;
+    color: #495057; 
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.solicitud-item p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.solicitud-item strong {
+    font-weight: 600;
+}
+
+.solicitud-item.estado-pendiente {
+    border-left: 5px solid #ffc107; 
+}
+
+.solicitud-item.estado-aprobado {
+    border-left: 5px solid #28a745; 
+}
+
+.solicitud-item.estado-rechazado {
+    border-left: 5px solid #dc3545;
+}
+
+/* Color del texto del estado */
+.solicitud-item.estado-pendiente strong {
+    color: #ffc107; 
+}
+
+.solicitud-item.estado-aprobado strong {
+    color: #28a745; 
+}
+
+.solicitud-item.estado-rechazado strong {
+    color: #dc3545; 
+}
+
+.solicitud-item .comentario {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-left: 3px solid #6c757d;
+    font-style: italic;
+    white-space: pre-wrap;
+}
+
+
+
+
+.main-nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    padding: 10px 0px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+}
+
+.nav-links-group {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-item {
+    padding: 0; 
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none; 
+    padding: 8px 10px;
+    border-radius: 4px; 
+    transition: background-color 0.3s, color 0.3s; 
+    font-weight: 500;
+    display: block;
+}
+
+.nav-item a:hover {
+    background-color: #0056b3; 
+    color: #ffffff;
+}
+
+.user-info-group {
+    display: flex;
+    align-items: center;
+}
+
+#user-display {
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffc107;
+    padding: 8px 0;
+    margin-left: 30px;
+}
+
+.nav-links-group {
+    display: flex;
+    gap: 35px;
+}

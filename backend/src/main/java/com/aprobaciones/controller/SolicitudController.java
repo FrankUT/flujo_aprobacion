@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 import java.util.Map;
+import com.aprobaciones.dto.EstadoUpdate;
 
 @RestController
 @RequestMapping("/api/solicitudes")
@@ -60,9 +61,21 @@ public class SolicitudController {
     }
 
     @PutMapping("/{id}/estado")
-    public Solicitud cambiarEstado(@PathVariable UUID id, @RequestBody Map<String, String> body) {
-        String nuevoEstado = body.get("estado");
-        return service.cambiarEstado(id, nuevoEstado);
+    public Solicitud cambiarEstado(@PathVariable UUID id, @RequestBody EstadoUpdate req) { 
+    
+        String aprobadorIdSimulado = "u001"; 
+
+        return service.cambiarEstado(
+            id, 
+            req.getEstado(), 
+            req.getComentario(), 
+            aprobadorIdSimulado
+        ); 
+    }
+
+    @GetMapping("/aprobador/{userId}")
+    public List<Solicitud> obtenerSolicitudesParaAprobacion(@PathVariable String userId) {
+        return service.obtenerSolicitudesParaAprobacion(userId);
     }
 
     @GetMapping("/usuario/{userId}")

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Solicitudes Enviadas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+    <nav class="main-nav-container">
+        <div class="nav-links-group">
+            <div class="nav-item">
+                <a href="index.html">Bandeja de Aprobación</a>
+            </div>
+            <div class="nav-item">
+                <a href="mis_solicitudes.html">Mis Solicitudes</a>
+            </div>
+            <div class="nav-item">
+                <a href="crear_solicitud.html">Crear Solicitud</a>
+            </div>
+        </div>
+    
+        <div class="user-info-group">
+            <span id="user-display">Nombre del Usuario</span>
+        </div>
+    </nav>
+
+<body>
+    <h1>Mis Solicitudes Enviadas</h1>
+    
+    <label for="filtroEstado">Filtrar por Estado:</label>
+    <select id="filtroEstado" onchange="cargarSolicitudesConFiltro()">
+        <option value="">Todas</option> 
+        <option value="pendiente" selected>Pendientes</option>
+        <option value="aprobado">Aprobadas</option>
+        <option value="rechazado">Rechazadas</option>
+    </select>
+    
+    <input type="hidden" id="solicitanteId" value="u002">
+
+    <div id="solicitudes-container">
+        </div>
+
+    <script src="user.js"></script>        
+    <script src="mis_solicitudes.js"></script>
+</body>
+</html>

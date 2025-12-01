@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Nueva Solicitud</title>
+    <link rel="stylesheet" href="style_form.css">
+</head>
+
+    <nav class="main-nav-container">
+        <div class="nav-links-group">
+            <div class="nav-item">
+                <a href="index.html">Bandeja de Aprobación</a>
+            </div>
+            <div class="nav-item">
+                <a href="mis_solicitudes.html">Mis Solicitudes</a>
+            </div>
+            <div class="nav-item">
+                <a href="crear_solicitud.html">Crear Solicitud</a>
+            </div>
+        </div>
+    
+        <div class="user-info-group">
+            <span id="user-display">Nombre del Usuario</span>
+        </div>
+    </nav>
+
+<body>
+    <h1>Crear Nueva Solicitud</h1>
+    
+    <form id="solicitud-form">
+        
+        <label for="titulo">Título de la Solicitud:</label>
+        <input type="text" id="titulo" name="titulo" required placeholder="Añade un titulo">
+
+        <label for="descripcion">Descripción detallada:</label>
+        <textarea id="descripcion" name="descripcion" rows="5" required placeholder="Añade una descripción"></textarea>
+        
+        <label for="solicitanteId">Tu ID de Usuario (Solicitante):</label>
+        <input type="text" id="solicitanteId" name="solicitanteId" placeholder="uuID">
+
+        <label for="aprobadorId">ID del Aprobador:</label>
+        <input type="text" id="aprobadorId" name="aprobadorId" placeholder="uuID">
+
+        <label for="tipo">Tipo de Solicitud:</label>
+        <select id="tipo" name="tipo" required>
+            <option value="">Cargando tipos...</option>
+        </select>
+
+        <button type="submit">Enviar Solicitud</button>
+        
+        <p id="mensaje-estado" style="margin-top: 15px;"></p>
+    </form>
+
+    <script src="user.js"></script>
+    <script src="crear_solicitud.js"></script>
+</body>
+</html>

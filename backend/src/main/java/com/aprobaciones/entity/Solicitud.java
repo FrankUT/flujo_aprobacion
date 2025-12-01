@@ -22,12 +22,19 @@ public class Solicitud {
     private String titulo;
 
     @ManyToOne
-    @JoinColumn(name = "solicitante_id")
+    @JoinColumn(name = "solicitante_id", referencedColumnName = "user_id")
     private Usuario solicitante;
 
     @ManyToOne
-    @JoinColumn(name = "aprobador_id")
+    @JoinColumn(name = "aprobador_id", referencedColumnName = "user_id")
     private Usuario aprobador;
+
+    @Column(name = "comentario_aprobador", length = 500)
+    private String comentarioAprobador;
+    
+    @ManyToOne
+    @JoinColumn(name = "ultimo_aprobador_accion_id", referencedColumnName = "user_id")
+    private Usuario ultimoAprobadorAccion;
 
     private String descripcion;
     private String tipo;
