@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:8080/api/solicitudes';
+const API_BASE_URL = '/api/solicitudes';
 const solicitudesContainer = document.getElementById('solicitudes-container');
 const filtroEstado = document.getElementById('filtroEstado');
 

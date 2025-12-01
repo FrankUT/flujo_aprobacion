@@ -1,5 +1,5 @@
 // --- Configuración ---
-const API_BASE_URL = 'http://localhost:8080/api/solicitudes';
+const API_BASE_URL = '/api/solicitudes';
 const form = document.getElementById('solicitud-form');
 const tipoSelect = document.getElementById('tipo');
 const mensajeEstado = document.getElementById('mensaje-estado');
