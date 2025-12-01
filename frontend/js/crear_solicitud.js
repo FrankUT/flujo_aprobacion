@@ -57,7 +57,7 @@ form.addEventListener('submit', async function (event) {
     const datosSolicitud = {
         titulo: document.getElementById('titulo').value,
         descripcion: document.getElementById('descripcion').value,
-        solicitanteId: document.getElementById('solicitanteId').value,
+        solicitanteId: getActiveUserId(),
         aprobadorId: document.getElementById('aprobadorId').value,
         tipo: document.getElementById('tipo').value
     };
@@ -89,6 +89,5 @@ form.addEventListener('submit', async function (event) {
     }
 });
 
-// ----------------------------------------------------------------------
 //Cargar los tipos de solicitud al cargar la página
 cargarTiposSolicitud();

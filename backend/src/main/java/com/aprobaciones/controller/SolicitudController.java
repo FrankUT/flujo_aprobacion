@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.Map;
 import com.aprobaciones.dto.EstadoUpdate;
+import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("/api/solicitudes")
@@ -27,8 +28,12 @@ public class SolicitudController {
     @PostMapping
     public Solicitud crearSolicitud(@RequestBody SolicitudRequest req) {
 
-        Usuario solicitante = userRepo.findById(req.getSolicitanteId()).orElseThrow();
-        Usuario aprobador   = userRepo.findById(req.getAprobadorId()).orElseThrow();
+        Usuario solicitante = userRepo.findById(req.getSolicitanteId()).orElseThrow(
+            () -> new RuntimeException("Solicitante no encontrado con ID: " + req.getSolicitanteId())
+        );
+        Usuario aprobador = userRepo.findById(req.getAprobadorId()).orElseThrow(
+            () -> new RuntimeException("Aprobador no encontrado con ID: " + req.getAprobadorId())
+        );
 
         Solicitud solicitud = new Solicitud();
         solicitud.setTitulo(req.getTitulo());
@@ -63,13 +68,16 @@ public class SolicitudController {
     @PutMapping("/{id}/estado")
     public Solicitud cambiarEstado(@PathVariable UUID id, @RequestBody EstadoUpdate req) { 
     
-        String aprobadorIdSimulado = "u001"; 
+        String aprobadorId = req.getAprobadorId();
+        if (aprobadorId == null || aprobadorId.isEmpty()) {
+        throw new IllegalArgumentException("El ID del aprobador activo es obligatorio.");
+        }
 
         return service.cambiarEstado(
             id, 
             req.getEstado(), 
             req.getComentario(), 
-            aprobadorIdSimulado
+            aprobadorId
         ); 
     }
 
@@ -91,5 +99,11 @@ public class SolicitudController {
     @GetMapping("/config/tipos")
     public List<String> obtenerTipos() {
         return service.obtenerTipos();
+    }
+
+    @GetMapping("/solicitante/{userId}")
+    public ResponseEntity<List<Solicitud>> getSolicitudesBySolicitante(@PathVariable String userId) {
+        List<Solicitud> solicitudes = service.buscarPorSolicitante(userId);
+        return ResponseEntity.ok(solicitudes);
     }
 }

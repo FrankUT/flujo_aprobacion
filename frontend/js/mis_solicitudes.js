@@ -1,5 +1,4 @@
 const API_BASE_URL = 'http://localhost:8080/api/solicitudes';
-const SOLICITANTE_ID = document.getElementById('solicitanteId').value; // Obtenemos el ID del input oculto
 const solicitudesContainer = document.getElementById('solicitudes-container');
 const filtroEstado = document.getElementById('filtroEstado');
 
@@ -24,7 +23,8 @@ function formatearFecha(fechaStr) {
  */
 async function obtenerTodasLasSolicitudes() {
     try {
-        const url = `${API_BASE_URL}/usuario/${SOLICITANTE_ID}`;
+        const userIdActivo = getActiveUserId(); 
+        const url = `${API_BASE_URL}/solicitante/${userIdActivo}`;
         
         const response = await fetch(url);
 
@@ -92,6 +92,7 @@ function renderizarSolicitudes(solicitudes) {
 
         solicitudDiv.innerHTML = `
             <h3>${sol.titulo} (${sol.tipo})</h3>
+            <p class="descripcion"><strong>Descripción detallada:</strong> ${sol.descripcion}</p>
             <p><strong>ID Solicitud:</strong> ${sol.id}</p>
             <p><strong>Aprobador Asignado:</strong> ${sol.aprobador ? sol.aprobador.fullName || sol.aprobador.userId : 'N/A'}</p>
             <p><strong>Estado:</strong> <strong style="color: ${colorEstado};">${sol.estado.toUpperCase()}</strong></p>

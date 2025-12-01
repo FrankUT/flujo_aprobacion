@@ -49,7 +49,11 @@ public class SolicitudService {
 
     public List<Solicitud> obtenerSolicitudesParaAprobacion(String userId) {
         return repo.buscarPorAprobador(userId);
-}
+    }
+
+    public List<Solicitud> buscarPorSolicitante(String userId) {
+        return repo.buscarPorSolicitante(userId); 
+    }
 
     public List<Solicitud> obtenerSolicitudesPorUsuario(String userId) {
         return repo.buscarPorSolicitanteOAprobador(userId, userId);
@@ -73,7 +77,6 @@ public class SolicitudService {
     
     Usuario aprobadorAccion = userRepo.findById(aprobadorId).orElse(null);
     solicitud.setUltimoAprobadorAccion(aprobadorAccion);
-
     return repo.save(solicitud);
     }
 }
