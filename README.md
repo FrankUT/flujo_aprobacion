@@ -11,7 +11,7 @@ La estructuras  sistema se divide en un **Backend** (Spring Boot) y un **Fronten
 El proyecto sigue una estructura de desarrollo estándar:
 
 ```
-/Proyecto
+/flujo_arpobacion
 ├── /backend/                  # Código Java (Spring Boot)
 │   ├── src/main/java/...
 │   └── ...
@@ -25,7 +25,8 @@ El proyecto sigue una estructura de desarrollo estándar:
     │   ├── crear_solicitud.js    # Lógica de envío del formulario
     │   └── mis_solicitudes.js    # Lógica para mostrar solicitudes
     └── /css/
-        └── styles.css
+    │   ├── styles.css             # Función global de usuario activo
+    │   ├── style_form.css    # Lógica de envío del formulario
 ```
 
 -----
