@@ -69,7 +69,7 @@ Asegúrate de tener instalado:
 
 ### 2\. 🚀 Puesta en Marcha
 
-Navega al directorio raíz del proyecto (donde se encuentra tu archivo `docker-compose.yml`) y ejecuta el siguiente comando:
+Navega al directorio raíz del proyecto (donde se encuentra el archivo `docker-compose.yml`) y ejecuta el siguiente comando:
 
 ```bash
 docker compose up --build -d
